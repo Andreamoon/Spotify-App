@@ -10,12 +10,15 @@ import { RootState } from "../mainReducer";
 import { retrieveViaAjax } from "../ajaxcalls";
 import { Categories } from "../../types/index";
 import { GetCategoriesAction } from "../../interfaces";
-import { Item} from "../../types/index";
+import { Item } from "../../types/index";
 const initialState: { items: [Item]; isLoading: boolean } = {
   isLoading: false,
   items: [
     {
       href: "",
+      id: "",
+      name: "",
+      icons: [{ url: "", width: "0", height: "0" }],
     },
   ],
 };
@@ -31,8 +34,8 @@ export const appReducer = (
   switch (action.type) {
     case CategoriesActionTypes.GET_CATEGORIES:
       return { ...state, isLoading: true };
-      case CategoriesActionTypes.GET_CATEGORIES_SUCCESS:
-      return { ...state, items:action.payload };  
+    case CategoriesActionTypes.GET_CATEGORIES_SUCCESS:
+      return { ...state, items: action.payload };
     default:
       return state;
   }

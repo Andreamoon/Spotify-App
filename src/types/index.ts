@@ -1,15 +1,14 @@
 type Icon = {
-  height: Number;
-  url: String;
-  width: Number;
+  height: string;
+  url: string;
+  width: string;
 };
 
 export type Item = {
   href: String;
-  //   icons: [Icon];
-  //   id: String;
-  //   name: String;
-  // };
+  id: String;
+  name: String;
+  icons: [Icon];
 };
 
 export type Categories = {

@@ -13,11 +13,24 @@ export function App() {
   }, []);
 
   return (
-    <>
-      ciao
-      {items.map((obj: Item, index: number) => (
-        <ItemComponent href={obj.href} key={index} />
-      ))}
-    </>
+    <div className="wrapper">
+      	<h1>Supercharge the week</h1>
+
+      <div className="cards">
+        {" "}
+        {items.map((obj: Item, index: number) => {
+          const { href, id, name, icons } = obj;
+          return (
+            <ItemComponent
+              key={index}
+              href={href}
+              id={id}
+              name={name}
+              icons={icons}
+            />
+          );
+        })}
+      </div>
+    </div>
   );
 }
