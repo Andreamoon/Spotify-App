@@ -23,7 +23,7 @@ const initialState: { items: [Item]; isLoading: boolean } = {
   ],
 };
 let url =
-  "https://any-api.com:8443/https://api.spotify.com/v1/browse/categories?limit=20&offset=0";
+  "https://any-api.com:8443/https://api.spotify.com/v1/browse/categories?limit=24&offset=0";
 let token =
   "BQCIqkD4RDfCqS8yw-gDZYCO4yitRNtrKTmrEX9icpbfcy1G_7lhdChpzaS9Dm3zmVs3L5LxC-LCpcHKVZCm-FeRqUs0DiBqCvMf3zpaA4A6SojUamiUwbTIvtJ1DbnqyW0QJKboTCPpxxo";
 

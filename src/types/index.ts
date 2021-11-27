@@ -5,9 +5,9 @@ type Icon = {
 };
 
 export type Item = {
-  href: String;
-  id: String;
-  name: String;
+  href: string;
+  id: string;
+  name: string;
   icons: [Icon];
 };
 

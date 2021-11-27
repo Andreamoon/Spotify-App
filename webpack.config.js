@@ -1,5 +1,6 @@
-const webpack = require('webpack');
-const Dotenv = require('dotenv-webpack');const path = require("path");
+const webpack = require("webpack");
+const Dotenv = require("dotenv-webpack");
+const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
@@ -9,6 +10,7 @@ module.exports = (env) => {
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "bundle.js",
+      publicPath: "/",
     },
     mode: "development",
     module: {
@@ -53,7 +55,8 @@ module.exports = (env) => {
         directory: path.join(__dirname, "src"),
       },
       compress: true,
-      port: 9000,
+      port: 8080,
+      historyApiFallback: true,
     },
   };
 };

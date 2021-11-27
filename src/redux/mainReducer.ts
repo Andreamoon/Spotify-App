@@ -6,13 +6,13 @@ import { appReducer, getCategories } from "./reducers/appReducer";
 import { AppState } from "../interfaces";
 import { store } from "./configureStore";
 
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof mainReducer>;
 
 export const mainReducer = combineReducers({
    appReducer,
 });
 
 export const epics: Function =
-  (injected?: Function) =>
+  (injected: any) =>
   (...args: [any]) =>
     combineEpics(getCategories)(...args, injected);
