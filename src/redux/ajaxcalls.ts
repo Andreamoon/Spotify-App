@@ -1,7 +1,7 @@
 import { ajax } from "rxjs/ajax";
 
 
-export const retrieveViaAjax = (token: string, url: string) => {
+export const retrieveViaAjax:Function = (token: string, url: string) => {
   return ajax({
     url: url,
     crossDomain: true,

@@ -1,0 +1,10 @@
+import { createAction } from "redux-actions";
+
+//USE ENUM TO DECLARE A GROUP FO CONST
+export enum CategoriesActionTypes {
+  GET_CATEGORIES = "GET_CATEGORIES",
+  GET_CATEGORIES_SUCCESS = "GET_CATEGORIES_SUCCESS",
+  GET_CATEGORIES_ERROR = "GET_CATEGORIES_ERROR",
+}
+
+

@@ -1,15 +1,23 @@
 import React, { Component, useState, useEffect } from "react";
 import * as ReactDOM from "react-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { actionTypes, sampleAction } from "./actions/actions";
-import { store } from "./redux/configureStore";
-
-
+import { getCategories } from "./actions";
+import { ItemComponent } from "./components/item";
+import { Item } from "./types";
 export function App() {
+  const items = useSelector((store) => store.appReducer.items);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({type:actionTypes.SAMPLE_ACTION})
-}, []);
-  return <>Welcome from app comonent</>;
+    dispatch(getCategories());
+  }, []);
+
+  return (
+    <>
+      ciao
+      {items.map((obj: Item, index: number) => (
+        <ItemComponent href={obj.href} key={index} />
+      ))}
+    </>
+  );
 }
