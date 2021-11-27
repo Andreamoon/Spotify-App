@@ -16,7 +16,7 @@ let initialState = {};
 function configureStore() {
   var middleware;
   if (process.env.NODE_ENV === "development") {
-    middleware = applyMiddleware(epicMiddleware);
+    middleware = applyMiddleware(epicMiddleware, logger);
   } else {
     middleware = applyMiddleware(epicMiddleware);
   }

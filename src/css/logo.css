@@ -1,0 +1,13 @@
+.wrapper .spotify-logo {
+  margin-left: 5rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.wrapper .spotify-logo label{
+    padding: 1rem;
+    color: #fff;
+	text-align: center;
+	font-weight: bold;
+}

@@ -11,7 +11,12 @@ import { retrieveViaAjax } from "../ajaxcalls";
 import { Categories } from "../../types/index";
 import { GetCategoriesAction } from "../../interfaces";
 import { Item } from "../../types/index";
-const initialState: { items: [Item]; isLoading: boolean } = {
+import * as actionTypes from "../../actions/actionTypes";
+const initialState: {
+  items: [Item];
+  isLoading: boolean;
+  showSpotifyBack: boolean;
+} = {
   isLoading: false,
   items: [
     {
@@ -21,6 +26,7 @@ const initialState: { items: [Item]; isLoading: boolean } = {
       icons: [{ url: "", width: "0", height: "0" }],
     },
   ],
+  showSpotifyBack: false,
 };
 let url =
   "https://any-api.com:8443/https://api.spotify.com/v1/browse/categories?limit=24&offset=0";
@@ -32,10 +38,13 @@ export const appReducer = (
   action: Action<any>
 ): AppState => {
   switch (action.type) {
-    case CategoriesActionTypes.GET_CATEGORIES:
+    case   CategoriesActionTypes.GET_CATEGORIES:
       return { ...state, isLoading: true };
     case CategoriesActionTypes.GET_CATEGORIES_SUCCESS:
       return { ...state, items: action.payload };
+
+    case actionTypes.SET_SHOW_SPOTIFY_LOGO_BACK:
+      return { ...state, showSpotifyBack: !state.showSpotifyBack };
     default:
       return state;
   }
