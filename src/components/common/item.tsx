@@ -6,6 +6,7 @@ import * as actionTypes from "../../actions/actionTypes";
 
 export function ItemComponent({ href, id, name, icons }: Item): JSX.Element {
   const dispatch = useDispatch();
+  
   function onClick(id: string) {
     dispatch({ type: actionTypes.SET_SHOW_SPOTIFY_LOGO_BACK });
   }

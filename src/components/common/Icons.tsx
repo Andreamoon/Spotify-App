@@ -1,6 +1,6 @@
 import React from "react";
 
-export function SvgIcons(iconName: string) {
+export function SvgIcons(iconName: any): JSX.Element {
   switch (iconName) {
     default:
       return (

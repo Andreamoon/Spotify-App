@@ -6,6 +6,9 @@ export interface AppState {
   isLoading: boolean;
   items: [Item];
   showSpotifyBack: boolean;
+  showBackToCategory: boolean;
+  playLists: [];
+  error: { message: string; isError: boolean };
 }
 
 export interface GetCategoriesAction extends Action<any> {

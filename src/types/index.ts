@@ -4,6 +4,13 @@ type Icon = {
   width: string;
 };
 
+export type PlaylistsItem = {
+  href: string;
+  id: string;
+  name: string;
+  images: [Icon];
+};
+
 export type Item = {
   href: string;
   id: string;
