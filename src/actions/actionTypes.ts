@@ -11,3 +11,4 @@ export enum CategoriesActionTypes {
 }
 
 export const SET_SHOW_SPOTIFY_LOGO_BACK = "SET_SHOW_SPOTIFY_LOGO_BACK";
+export const SET_SHOW_BACK_TO_CATEGORY = "SET_SHOW_BACK_TO_CATEGORY";

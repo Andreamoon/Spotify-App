@@ -26,6 +26,8 @@ const initialState: AppState = {
   playLists: [],
   error: { message: "", isError: false },
   showBackToCategory: false,
+  categoryId: "",
+  categoryItemId: "",
 };
 let categoriesUrl =
   "https://any-api.com:8443/https://api.spotify.com/v1/browse/categories?limit=24&offset=0";
@@ -50,8 +52,14 @@ export const appReducer = (
       };
     case actionTypes.SET_SHOW_SPOTIFY_LOGO_BACK:
       return { ...state, showSpotifyBack: !state.showSpotifyBack };
+    case actionTypes.SET_SHOW_BACK_TO_CATEGORY:
+      return {
+        ...state,
+        showBackToCategory: !state.showBackToCategory,
+        categoryItemId: action.payload,
+      };
     case CategoriesActionTypes.GET_CATEGORY_BY_ID:
-      return { ...state, showSpotifyBack: true };
+      return { ...state, showSpotifyBack: true, categoryId: action.payload };
     case CategoriesActionTypes.GET_CATEGORY_BY_ID_SUCCESS:
       return {
         ...state,

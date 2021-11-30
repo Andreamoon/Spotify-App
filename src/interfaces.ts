@@ -9,6 +9,8 @@ export interface AppState {
   showBackToCategory: boolean;
   playLists: [];
   error: { message: string; isError: boolean };
+  categoryId: string;
+  categoryItemId: string;
 }
 
 export interface GetCategoriesAction extends Action<any> {

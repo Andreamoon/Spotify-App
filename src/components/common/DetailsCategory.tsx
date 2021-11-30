@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import { PlaylistsItem } from "../../types";
 import { Category } from "../Category";
-
+import * as actionTypes from "../../actions/actionTypes";
 export function DetailsCategory({
   href,
   images,
@@ -17,11 +17,14 @@ export function DetailsCategory({
   id,
 }: PlaylistsItem): JSX.Element {
   let { path, url } = useRouteMatch();
-
+  const dispatch = useDispatch();
   function onClick(id: string) {
-    console.log(id);
+    
+
+    dispatch({ type: actionTypes.SET_SHOW_SPOTIFY_LOGO_BACK });
+    dispatch({ type: actionTypes.SET_SHOW_BACK_TO_CATEGORY ,payload:id});
   }
-  //   console.log(path, url);
+  //
   return (
     <>
       <Link to={`${url}/${id}`} onClick={() => onClick(id)}>
