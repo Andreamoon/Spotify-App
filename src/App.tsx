@@ -1,12 +1,11 @@
 import React, { Component, useState, useEffect } from "react";
 import * as ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import { getCategories } from "./actions";
 import { ItemComponent } from "./components/common/item";
 import { Item } from "./types";
-import { Category } from "./components/Category";
-import { DetailsCategory, Topic } from "./components/common/DetailsCategory";
+import { CategoryItems } from "./components/CategoriyItems";
+import { TrackItems } from "./components/TrackItems";
 import { RootState } from "./redux/mainReducer";
 import {
   Switch,
@@ -75,15 +74,13 @@ export function App() {
         <Route
           exact
           path={process.env.PUBLIC_URL + "category/:id"}
-          component={Category}
-        ></Route>
-        <Route
+          component={CategoryItems}
+        />
+        {/* <Route
           exact
-          path={
-            process.env.PUBLIC_URL + `category/${categoryId}/:${categoryItemId}`
-          }
-          component={Topic}
-        ></Route>
+          path={ `/category/${categoryId}/:id`}
+          component={TrackItems}
+        ></Route> */}
       </Switch>
     </div>
   );

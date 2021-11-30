@@ -1,16 +1,19 @@
 import React, { Component, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Route, useRouteMatch } from "react-router-dom";
 import { getCategoryById } from "../actions/index";
 import { store } from "../redux/configureStore";
 import { RootState } from "../redux/mainReducer";
 import { PlaylistsItem } from "../types";
-import { DetailsCategory } from "./common/DetailsCategory";
-import { SvgIcons } from "./common/Icons";
-export function Category({ match }: any) {
+import { DetailsCategoryItem } from "./common/DetailsCategoryItem";
+import { TrackItems } from "./TrackItems";
+
+export function CategoryItems({ match }: any) {
   const {
     params: { id },
   } = match;
+  const { url, path } = useRouteMatch();
+
   const playLists = useSelector(
     (store: RootState) => store.appReducer.playLists
   );
@@ -23,32 +26,24 @@ export function Category({ match }: any) {
   useEffect(() => {
     dispatch(getCategoryById(id));
   }, [match]);
-
   return (
     <>
       <h1>{error.isError ? error.message : id}</h1>
-      {/* {showBackToCategory ? (
-        <Link
-          to={process.env.PUBLIC_URL + "/category"}
-          className="spotify-logo"
-          // onClick={onClickSpotifyLogo}
-        >
-          <SvgIcons iconName={"spotify-logo"} />
-          <label>Back to Browse Categories</label>
-        </Link>
-      ) : null} */}
 
       <div className="cards">
         {playLists.map((obj: PlaylistsItem, index: number) => {
-          const { href, id: categoryId, name, images } = obj;
+          console.log(obj)
+          const { href, id, name, images } = obj;
           return (
-            <DetailsCategory
-              key={index}
-              id={categoryId}
-              name={name}
-              images={images}
-              href={href}
-            />
+            <div key={index}>
+              <DetailsCategoryItem
+                id={id}
+                name={name}
+                images={images}
+                href={href}
+              />{" "}
+              
+            </div>
           );
         })}
       </div>

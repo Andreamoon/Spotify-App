@@ -8,9 +8,10 @@ import {
   useParams,
 } from "react-router-dom";
 import { PlaylistsItem } from "../../types";
-import { Category } from "../Category";
 import * as actionTypes from "../../actions/actionTypes";
-export function DetailsCategory({
+import { TrackItems } from "../TrackItems";
+
+export function DetailsCategoryItem({
   href,
   images,
   name,
@@ -19,12 +20,12 @@ export function DetailsCategory({
   let { path, url } = useRouteMatch();
   const dispatch = useDispatch();
   function onClick(id: string) {
-    
+    console.log(`${url}/${id}`);
 
     dispatch({ type: actionTypes.SET_SHOW_SPOTIFY_LOGO_BACK });
-    dispatch({ type: actionTypes.SET_SHOW_BACK_TO_CATEGORY ,payload:id});
+    dispatch({ type: actionTypes.SET_SHOW_BACK_TO_CATEGORY, payload: id });
   }
-  //
+  console.log(`${url}/${id}`);
   return (
     <>
       <Link to={`${url}/${id}`} onClick={() => onClick(id)}>
@@ -38,22 +39,11 @@ export function DetailsCategory({
           </div>
         </div>
       </Link>
+      <Route
+        exact
+        path={`${url}/${id}`}
+        component={TrackItems}
+      />
     </>
-  );
-}
-
-export function Topic({ match }: any) {
-  // The <Route> that rendered this component has a
-  // path of `/topics/:topicId`. The `:topicId` portion
-  // of the URL indicates a placeholder that we can
-  // get from `useParams()`.
-  let id = useParams();
-
-  console.log(match);
-
-  return (
-    <div>
-      <h1>topicId</h1>
-    </div>
   );
 }
